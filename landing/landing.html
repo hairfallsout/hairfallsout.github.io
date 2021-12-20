@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Arthro Care</title>
+    <link rel="stylesheet" href="css/all.css" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="img/favixon2.webp" />
+    <link href="css/style.d7ef4d078bba87b7beaf.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" />
+    <link href="css/thanks.d7ef4d078bba87b7beaf.css" rel="stylesheet" />
+
+    <style>
+      #ouibounce-modal .button-big {
+        background: #1ab925;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 18px;
+        padding: 15px 30px;
+        margin: 10px 0;
+        clear: both;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 5px;
+      }
+      .alert-success {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+      }
+      #timerText {
+        font-size: 46px;
+        text-align: center;
+        color: #ff5b00;
+        font-weight: bold;
+      }
+      #ouibounce-modal h4 {
+        font-size: 34px;
+        font-weight: bold;
+        color: #ff5b00;
+      }
+      .modal-title h3 {
+        font-size: 50px;
+        font-weight: bold;
+        color: #6699cc;
+      }
+      .modal_text .red {
+        color: #6699cc;
+      }
+
+      .well {
+        display: none;
+      }
+      #ouibounce-modal .more-space {
+        margin: 8px 0px;
+      }
+      #ouibounce-modal .info_modal_box {
+        font-size: 16px;
+      }
+      #ouibounce-modal .button-big span {
+        font-size: 0.67em;
+        font-weight: normal;
+      }
+      #ouibounce-modal .center {
+        text-align: center;
+      }
+      #ouibounce-modal p.last-offer {
+        margin: 0px;
+        line-height: 1.5em;
+        font-size: 18px;
+      }
+      #ouibounce-modal .button-big:hover {
+        background: #19d025;
+      }
+      #ouibounce-modal strong.price {
+        font-size: 30px;
+      }
+      #ouibounce-modal {
+        z-index: 100;
+        font-family: "Open Sans", sans-serif;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #ouibounce-modal .underlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        -webkit-animation: fadein 0.5s;
+        animation: fadein 0.5s;
+      }
+      #ouibounce-modal .modal {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        max-width: 700px;
+        z-index: 1;
+        position: absolute;
+        margin: 20px auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        -webkit-animation: popin 0.3s;
+        animation: popin 0.3s;
+        overflow-y: visible;
+        border-radius: 20px;
+        /* background-color: white; */
+      }
+      .box_price {
+        margin-top: 140px;
+        text-align: center;
+        padding-left: 140px;
+        font-size: 19px;
+      }
+      .product_main {
+        text-align: center;
+      }
+      .container {
+        padding-bottom: 0px;
+      }
+      .new_price {
+        color: #ff5b00;
+        font-size: 38px;
+        line-height: 39px;
+      }
+      #ouibounce-modal .modal-title {
+        font-size: 20px;
+        /* background-color: #2e45a4; */
+        color: #fff;
+        padding: 4px;
+        margin: 0;
+        border-radius: 4px 4px 0 0;
+        text-align: center;
+      }
+      h3 {
+        color: #fff;
+        font-size: 1em;
+        margin: 0;
+        font-weight: 500;
+      }
+      #ouibounce-modal h3 strong {
+        color: red;
+      }
+      #ouibounce-modal #timerText {
+        color: red;
+        font-size: 43px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px 0px;
+      }
+      #ouibounce-modal .modal-body {
+        padding: 30px 30px 45px;
+        font-size: 26px;
+        text-align: left;
+        background-color: white;
+        border-radius: 20px;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+      #ouibounce-modal .modal-body strong {
+        color: red;
+        font-weight: bold;
+      }
+      .modal-footer {
+        padding: 0px;
+        text-align: right;
+        border-top: 1px solid #e5e5e5;
+      }
+      #ouibounce-modal p {
+        color: #000;
+        line-height: 27px;
+        font-size: 22px;
+        padding: 2px 0px;
+        margin: 0px;
+      }
+      #ouibounce-modal p.blink {
+        margin: 0px;
+      }
+      #ouibounce-modal p.line {
+        margin: 0px;
+        font-weight: bold;
+        text-align: left;
+        font-size: 27px;
+      }
+      #ouibounce-modal form {
+        text-align: center;
+        margin-top: 15px;
+      }
+      #ouibounce-modal .error {
+        text-align: center;
+        color: red;
+        margin: 5px 0px;
+      }
+      #ouibounce-modal form input[type="text"] {
+        padding: 12px;
+        font-size: 1.2em;
+        width: 300px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #ouibounce-modal form#leadform2 input,
+      #ouibounce-modal form#leadform2 select {
+        padding: 6px;
+        font-size: 16px;
+        width: 100%;
+      }
+
+      #ouibounce-modal form#leadform2 .formrow {
+        margin-bottom: 10px;
+      }
+
+      #ouibounce-modal form#leadform2 .formselect {
+        float: none;
+      }
+
+      #ouibounce-modal form#leadform2 .formtxt1,
+      #ouibounce-modal form#leadform2 .formtxt2 {
+        color: #000;
+        font-size: 18px;
+        line-height: 27px;
+        font-weight: bold;
+      }
+
+      #ouibounce-modal .formclear {
+        clear: both;
+        width: 100%;
+      }
+
+      #ouibounce-modal .form-error {
+        font-size: 14px;
+        margin: 0;
+        text-align: left;
+        margin: 0;
+      }
+
+      #ouibounce-modal form#leadform2 .formtxt1 {
+        margin-bottom: 0;
+      }
+
+      #ouibounce-modal form#leadform2 .formtxt2 {
+        margin-bottom: 10px;
+      }
+
+      .aa {
+        display: none;
+      }
+
+      .modal_text {
+        float: none;
+      }
+
+      .modal-wrapper {
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .modal-close {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 50%;
+        background-color: #6699cc;
+        z-index: 3;
+        cursor: pointer;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      .modal-close:before,
+      .modal-close:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: #fff;
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        -ms-transform: translateY(-50%) translateX(-50%);
+        transform: translateY(-50%) translateX(-50%);
+      }
+
+      .modal-close:before {
+        width: 5px;
+        height: 17px;
+      }
+
+      .modal-close:after {
+        width: 17px;
+        height: 5px;
+      }
+
+      .modal-img {
+        max-width: 100%;
+      }
+
+      @media (min-width: 700px) {
+        .modal-title h3 {
+          font-size: 77px;
+        }
+        .modal_text {
+          width: 69%;
+          float: left;
+        }
+        .aa {
+          display: block;
+          float: right;
+          width: 26%;
+          position: relative;
+          top: 100px;
+        }
+      }
+
+      #ouibounce-modal form input[type="submit"] {
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 16px;
+        font-size: 12px;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #4ab471;
+        border: none;
+        cursor: pointer;
+        -webkit-font-smoothing: antialiased;
+      }
+      #ouibounce-modal form p {
+        text-align: left;
+        opacity: 0.8;
+        margin-top: 1px;
+        padding-top: 1px;
+        font-size: 0.9em;
+      }
+      #ouibounce-modal .modal-footer {
+        /* position: absolute; */
+        /* bottom: 0px; */
+        text-align: center;
+        width: 100%;
+        border: none;
+      }
+      #ouibounce-modal .modal-footer p {
+        cursor: pointer;
+        display: inline;
+        /* border-bottom: 1px solid #344a5f; */
+        font-size: 14px;
+        text-decoration: none;
+        color: #00000078;
+      }
+      #ouibounce-modal strong.price {
+        font-size: 22px;
+      }
+
+      .leadform2-note {
+        font-size: 13px;
+        display: block;
+        text-align: left;
+      }
+      #message1 {
+        display: block;
+        padding: 6px;
+        font-size: 16px;
+        width: 100%;
+      }
+      #leadform_btn,
+      #leadform_submit {
+        font-family: "Open sans", sans-serif;
+        width: 100%;
+        text-decoration: underline;
+        font-size: 17px;
+        font-weight: 700;
+        border-radius: 4px;
+        background: #0083b2;
+        border: none;
+        outline: none;
+        padding: 10px 10px;
+        color: #f2f9ff;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+      .leadform_alertbox {
+        display: none;
+        color: #d0251b;
+        text-align: center;
+        padding: 15px 0;
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .info_form {
+        padding: 0;
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .info_form--first {
+        margin-top: 10px;
+      }
+
+      .info_form--last {
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: #0083b2;
+      }
+      .order-btn {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        background-color: #0083b2;
+        color: #fff !important;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        display: table;
+        margin: 52px auto 50px;
+        font-weight: bold;
+      }
+
+      .order-btn:hover {
+        text-decoration: none;
+      }
+    </style>
+    <style>
+      /*contact popup styles*/
+      .overlay2 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 50;
+        background-color: rgba(0, 0, 0, 0.6);
+        top: 0;
+        right: 0;
+        display: none;
+      }
+
+      #contact_popup {
+        padding: 50px 40px;
+        background: #fff;
+        max-width: 800px;
+        width: 100%;
+        height: 410px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        z-index: 9999;
+        display: none;
+        color: #3d3d3d;
+        opacity: 1;
+        visibility: visible;
+        text-align: center;
+      }
+
+      #contact_popup h2,
+      #contact_popup p {
+        margin-bottom: 30px;
+        color: #000;
+        margin-top: 0;
+      }
+
+      #contact_popup h3 strong {
+        color: #38c2f9;
+      }
+
+      #contact_popup h2 {
+        font-size: 50px;
+        color: #1047ad;
+        line-height: 1;
+      }
+
+      #contact_popup h3 strong {
+        font-size: 24px;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      #contact_popup #close_contact {
+        content: "";
+        position: absolute;
+        cursor: pointer;
+        top: -40px;
+        right: -40px;
+        background-image: url("img/close.webp");
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+      }
+
+      @media (max-width: 1440px) {
+        #contact_popup #close_contact {
+          top: 15px;
+          right: 15px;
+        }
+      }
+      @media (max-height: 875px) {
+        #contact_popup #close_contact {
+          top: 15px;
+          right: 15px;
+        }
+      }
+
+      .disclaimer {
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 15px;
+      }
+
+      .promo-text-box {
+        background: #f19aa0;
+        font-size: 12px;
+        padding: 5px;
+        color: #fff;
+      }
+
+      @media (max-width: 991px) {
+        #contact_popup {
+          bottom: auto;
+          height: auto;
+          top: 15px;
+          max-height: calc(100vh - 15px);
+          overflow: auto;
+        }
+
+        .popup #close_contact {
+          top: 15px;
+          right: 15px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        #contact_popup h2 {
+          font-size: 30px;
+        }
+        #contact_popup h3 {
+          font-size: 20px;
+        }
+      }
+    </style>
+    <style>
+      .input-phone-prefix {
+        width: 100px;
+        width: 80px;
+        float: left;
+        border: 1px solid #d6d4d4;
+        border-radius: 4px;
+        color: #161616;
+        font-size: 15px;
+        font-weight: 400;
+        padding: 8px 10px;
+        background: #fff;
+      }
+      .input-phone-prefix.popup {
+        padding: 7px 10px;
+      }
+    </style>
+    <style>
+      .popup-error-info {
+        color: #d0251b;
+        padding-top: 0;
+        padding-bottom: 5px;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: left;
+        display: none;
+      }
+    </style>
+    <style>
+      .btn-regulations {
+        cursor: pointer;
+        color: grey !important;
+      }
+
+      .btn-regulations:hover {
+        text-decoration: underline !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="font-size: 12px">Akció</div>
+
+    <div class="overlay2"></div>
+    <!-- contact -->
+    <div id="contact_popup">
+      <div class="flex">
+        <div class="text_wrapper" style="max-width: 100%">
+          <h2 class="popup_title">Kapcsolat</h2>
+          <h3 class="popup_subtitle"><strong>Adatkezelő adatai</strong></h3>
+          <p>
+            Adatkezelő - a webhely tulajdonosa és üzemeltetője a Jayden
+            Carepromotion LLC, székhelye Wilmington, DE, USA Cím: 19C Trolley
+            Square, Wilmington, DE, US 19806, nyilvántartásba helyezési száma:
+            L20000179832.
+          </p>
+
+          <h3 class="popup_subtitle"><strong>E-mail</strong></h3>
+
+          <p>
+            E-mail cím:
+            <a href="#orderForm">contacthu@globalreversed.com</a>
+          </p>
+        </div>
+      </div>
+
+      <div id="close_contact"></div>
+    </div>
+    <!-- contact END -->
+    <div id="ouibounce-modal">
+      <div class="underlay"></div>
+      <div class="modal">
+        <div class="modal-wrapper">
+          <div class="modal-body">
+            <div class="modal-close" id="modal-close"></div>
+            <div class="modal_text">
+              <div class="modal-title"><h3>VÁRJ!</h3></div>
+
+              <div>
+                <p class="line">Speciális ajánlat!</p>
+                <span class="info_form info_form--first"
+                  >Fizetendő összeg: 7 900 HUF</span
+                >
+                <span class="info_form info_form--last"
+                  >Ingyenes kiszállítás!</span
+                >
+                <p class="info_modal_box">
+                  A limitált ajánlat átvételéhez menj vissza a weboldalra.
+                </p>
+              </div>
+
+              <form id="leadform2">
+                <div class="formrow">
+                  <span>
+                    <div class="clearfix">
+                      <input
+                        type="text"
+                        name="phone"
+                        id="phone1"
+                        class="input phone_form-popup"
+                        placeholder="* Írd be a telefonszámod"
+                      />
+                    </div>
+                  </span>
+                  <div id class="phone_error-popup popup-error-info">
+                    Adja meg helyesen a telefonszámát
+                  </div>
+                </div>
+                <div class="formrow">
+                  <span
+                    ><input
+                      type="text"
+                      name="name"
+                      id="name1"
+                      size="40"
+                      placeholder="* Írd be a keresztneved"
+                      class="name_form-popup"
+                  /></span>
+                  <div id class="name_error-popup popup-error-info">
+                    Adja meg helyesen a keresztnevét
+                  </div>
+                </div>
+                <div class="formrow">
+                  <span
+                    ><input
+                      type="text"
+                      name="surname"
+                      id="surname1"
+                      size="40"
+                      placeholder="Írd be a vezetékneved"
+                      class="surname_form-popup"
+                  /></span>
+                </div>
+
+                <div id="leadform_button1" class="button-wrapper">
+                  <div class="leadform_alertbox">
+                    Töltse ki helyesen az űrlapot!
+                  </div>
+                  <div id="leadform_btn" class="form_btn-popup">
+                    Kattintson ide, ha az Arthro Care mellett döntött
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="aa">
+              <img class="modal-img" src="img/product2.webp" alt />
+            </div>
+
+            <div class="formclear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container shadow-lg">
+      <div class="row">
+        <main class="col-12 col-lg-8">
+          <h1
+            class="mb-4"
+            style="
+              color: #6e2b23;
+              padding-bottom: 30px;
+              letter-spacing: -2px;
+              width: 100%;
+              font-weight: 500;
+            "
+          >
+            30 nap alatt megfeledkezhet arról, hogy valaha is szenvedett ízületi
+            problémák miatt, vagy fájt volna a háta, dereka - ezt erősíti meg
+            számos klinikai tanulmány is.
+          </h1>
+          <a href="#orderForm" class="order-btn link-scroll">Most rendeljen</a>
+          <div class="frame" style="margin-bottom: 30px">
+            <img
+              style="margin-top: 0; width: 40%; padding-top: 10px"
+              class="img-fluid float-right pl-3"
+              src="img/doctor1.webp"
+              alt="doctor"
+            />
+            <p
+              class="first-p mt-4"
+              style="letter-spacing: -0.1px; padding-bottom: 20px"
+            >
+              Üdvözlöm!
+              <br />
+              <br />
+              Kincses Károly professzor vagyok, több mint 25 éves szakmai
+              tapasztalattal rendelkező ortopéd és reumatológus. A elmúlt évben
+              fejeztem be egy új ízületi regenerációs módszer tesztelését, amely
+              lehetővé teszi mind azok számára, akik alkalmazzák, hogy 100%-ban
+              visszanyerjék mozgásképességüket. Nem számít, hogy ízületi
+              problémái kezdetlegesek-e vagy komolyabb elváltozásokról van szó,
+              hiszen minden esetben teljes lehet a regeneráció. Nem számít sem
+              az életkor, hogy férfi-e vagy nő, vagy hogy ki milyen más
+              gyógyszereket szed - a tudósok által kifejlesztett technológia a
+              körülményektől függeltenül működik, hiszen automatikusan
+              felkészíti a szervezetet az ízületi gyulladás elleni küzdelemre.
+            </p>
+          </div>
+
+          <h2>
+            Nincs szükség arra, hogy mérgezze mágat vegyipari gyógyszerekkel,
+            vagy álávesse magát kockázatos orvosi beavatkozásoknak:
+          </h2>
+
+          <ul>
+            <li>
+              végleg megszabadulhat az ízületi problémáitól, a hát- és
+              derékfájástól, s már az első kezelés után megkönnyebbülést
+              érezhet;
+            </li>
+            <li>
+              akár 89%-ban újjáépítheti az ízületi porcszövetét, valamint
+              megerősítheti a csont és ízületi rendszerét, az inakat és az
+              izmokat néhány alkalmazás segítségével;
+            </li>
+            <li>
+              100%-ban visszanyerheti mozgásképességét és mozgékonyságát
+              veszélyes és fájdalmas műtéti eljárosok nélkül elkerülve az
+              esetleges rokkantságot;
+            </li>
+            <li>
+              elkerülheti az ízületi megmerevedéseket és a gerincsérv veszélyét,
+              egy 10 napos kezeléssel akár helyre is állíthatja mozgási
+              kényelmét;
+            </li>
+            <li>megelőzheti az ízületek és a csigolyák kopását;</li>
+            <li>
+              visszafordíthatja a degeneratív elváltozásokat, megszüntheti az
+              ízületi gyulladásokat s a velük járo izületi duzzanatokat -
+              azonnal lemondhat a fájdalmak okozta kellemetlenségekről;
+            </li>
+            <li>
+              azonnal elindíthatja az ízületek, a gerinc regenerálódását
+              elszenvedett sérülések, zúzódások, törések vagy ficamok után,
+            </li>
+            <li>
+              s mind ennek köszönhetően négyszer több energiára tehet majd
+              szert, hogy visszanyerje életörömét!
+            </li>
+          </ul>
+
+          <p>
+            Manapság mindez már elérhető drága kezelések nélkül is, anélkül hogy
+            mérgeznénk magunkat, vagy életünk jelentés részét orvosi rendelőkben
+            töltenénk (ahol mégsem tudnak segíteni), vagy bonyolult, kockázatos
+            műtéteknek vetnénk álá magunkat. Ha meg szeretne tehát spórolni
+            néhány 100.000 forintot, időt, idegességet, kérem feltétlenül
+            olvassa végig a mondanivalómat.
+          </p>
+
+          <p>
+            Bárki visszanyerheti fiatalkori mozgásképességét. Igenis lehetőség
+            van arra, hogy folyékony, erőteljes mozgása legyen ízületi
+            fájdalmak, duzzanatok, pattogás nélkül, anélkül, hogy drága, káros
+            gyógyszereket szedjen vagy haszontalan, ragadós kenőcsöket
+            használjon. Azok, akik az én módszeremet alkalmazták, megerősítik,
+            hogy lehetővé tette számukra, hogy a testüket ismét úgy
+            mozgathassák, mint fiatal korukban. Még a legsúlyosabb krónikus
+            térd, csípő, gerinc, sőt nyak, könyök és csukló ízületi gyulladásban
+            szenvedők is visszanyerték korábbi mozgásképességüket. Végleg
+            megszabadultak az ízületi megmerevedésekből fakadó
+            túlérzékenységüktől és kellemetlen közérzetüktől. Megszüntették a
+            gyulladást és regenerálták az ízületek kulcsfontosságú elemeit.
+          </p>
+
+          <h2>
+            Ezért bizonyosult kiváló alternatívának az egyedi módszerem más
+            kezelési eljárásokhoz képest:
+          </h2>
+          <ul>
+            <li>
+              javít a mozgásképességen már az alkalmazást követő első 24 órában,
+              30 nap elteltével pedig tartósan regenerálja a porc- és
+              csontrendszert;
+            </li>
+            <li>
+              Teljesen természetes módszer, mely 100% biztonságos a szervezet
+              számára, nem terheli az emésztőrendszert, nem mérgezi a
+              szervezetet, nem okoz függőséget;
+            </li>
+            <li>
+              még a legsúlyosabb porc és csont rendellenességeket is
+              helyreállítja, fiatalos mozgást biztosít mindenkinek, nemtől,
+              életkortól és az elváltozás stádiumától függetlenül;
+            </li>
+            <li>
+              alkalmazása gyerekjáték, bárki saját maga is elvégezheti a
+              kezelést - segítségkérés vagy szakemberhez való sorban állás
+              nélkül;
+            </li>
+            <li>
+              százezreket takaríthat meg vele, ahelyett, hogy
+              fájdalomcsillapítókra, vagy egyéb tablettákra és haszontalan
+              terápiákra, kezelésekre pazarolná a pénzt.
+            </li>
+          </ul>
+          <h2>
+            Sikerült egy olyan módszert létrehoznom, mely lehetővé teszi, hogy
+            100%-ig visszanyerje mozgásképességét, automatikusan megszüntesse
+            ízületi fájdalmait, duzzanatokat, puffadást.
+          </h2>
+          <p>
+            Ennek köszönhetően - mindörökké megszabadul fájásaitól, s kockázatos
+            műtétek iránt érzett félelmétől, valamint nem kell többé aggódnia
+            rokkantság miatt. Az ízületi, s gerinci elváltozásokkal kapcsolatos
+            összes problémája már a múlté lesz. Nemcsak a fájdalomtól szabadul
+            meg, hanem a bosszantó pattogásoktól, duzzanatoktól, gyulladásoktól.
+            Végre képes lesz újra normálisan működni, és mindazt megtenni,
+            amiről az ízületi fájdalmak miatt már le kellett mondania.
+          </p>
+          <p>
+            Ismét képes lesz arra, hogy fájdalommentesen lépcsőt másszon,
+            guggoljon, hajoljon és játsszon az unokáival. Hosszú sétákra
+            indulhat majd, biciklizhet, barkácsolhat a garázsban, s lehet akár
+            újra el fog tudni járni táncolni is. Mindezt az innovatív, már
+            nanocelluláris szinten ható módszeremnek köszönhetően. Az általam
+            kifejlesztett kezelés regenerálja az ízületeket és mindössze 30 nap
+            alatt 100%-ig helyreállítja a mozgásképességét. De vajon hogyan
+            jutottam el idáig?
+          </p>
+          <h2>
+            A nővéremet a rokkantság veszélye fenyegette - segítenem kellett
+            rajta.
+          </h2>
+          <p>
+            Kutatások szerint Magyarország minden harmadik lakósa szenved
+            ízületi vagy hát és derék fájdalmakban. Nemtől, életkortól
+            függetlenül bárkit érinthet a probléma - leginkább korábban
+            elszenvedett sérülések, csonttörések következtében, vagy genetikai
+            okokből. A reumatoid artritisz (RA) csak Magyarországon több mint
+            120 000 embert érint. Egyes esetekben a degeneratív elváltozások
+            olyannyira súlyosak, hogy a beteget vagy bonyolult műtét várja, vagy
+            teljes rokkantság fenyegeti!
+          </p>
+          <p>
+            Sajnos a nővérem esete is ilyen esetnek bizonyult. Látszólag
+            ártalmatlan ízületi merevséggel és lépcsőmászási problémákkal
+            kezdődött. Azonban folyamatosan romlott a helyzet, míg a végén szó
+            szerint egyik napról a másikra vesztette el mozgásképességét. Térd
+            és gerinc fájdalmai alkalmanként oly mértékben megviselték, hogy
+            képtelen volt megmosakodni, vagy egyáltalán felkelni az ágyból.
+            Egyre jobban elszigetelődött a hétköznapokban, mert a problémáiből
+            kifolyólag már alig mozdult ki otthonról, vagy hívott meg
+            vendégeket. De ez még csak a kezdet volt, hiszen valójában...
+          </p>
+          <h2>Életét kockáztatta!</h2>
+          <p>
+            Az volt a legrosszabb az egész helyzetben, hogy az ízületi panaszok
+            szó szerint az életére törtek. Mindmáig emlékszem arra a napra,
+            amikor autóval kellett elmennem a nővéremért, hogy elvigyem
+            vizsgálatra, pedig csak át kellett volna mennie az úton, hogy
+            eljusson az orvoshoz. Mégis ... majdnem elütötte egy autó! Mihelyst
+            lelépett az úttestre, úgy belenyilallott a fájdalom a térdébe, hogy
+            képtelen volt megmozdulni. A sofőrnek az utolsó pillanatban sikerült
+            megállnia...
+          </p>
+          <p>
+            Dühös lettem, amikor a nővéremnél egy zacskónyi gyanús ízületi
+            tablettára bukkantam. Mint kiderült, már jó ideje marékszámra szedte
+            ezeket a "varázspirulákat". Hirtelen világossá vált számomra, hogy
+            honnan erednek a májproblémái, a gyomorfekélye meg a többi emésztési
+            panasza. Azt hitte, ezek a tabletták tényleg segíteni fognak. De
+            nemhogy nem használtak - teljesen tönkretették a szervezetét.
+          </p>
+
+          <h2>Hogyan fedeztem fel "csodaszeremet" az ízületi bántalmakra?</h2>
+          <p>
+            Nem tudtam tovább nézni, ahogy szenved a nővérem, muszáj volt
+            segítenem rajta, hogy visszanyerje a mozgásképességét és az
+            életörömét. Azt szerettem volna, hogy újra nevethessen, s olyan
+            erőteljes nő legyen, mint régen. Azt gondoltam magamban: "Nem hagyom
+            annyiban! Európában élünk, nem az afrikai bozótban, az embereknek
+            megvan a méltóságuk, és segíteni kell rajtuk!". És pont emiatt
+            kezdtem el akkor az intenzív kutatásokat...
+          </p>
+          <p>
+            Bezárkóztam a laboratóriumba, és több mint egy évet töltöttem
+            kutatással, teszteléssel. Mind a tudományos ismeretek, mind maga a
+            természet, de persze egy kis szerencse is hozzájárult a kisérletek
+            nagyszerű végeredményéhez - sikerült egy olyan innovatív
+            biomolekuláris formulát kifejlesztenem, ami kizárólag természetes,
+            aktív anyagokat tartalmaz. Nem tétováztam, benyújtottam nagyszabású
+            kivizsgálásra. 99,2%-os hatékonyságát világszerte működő
+            kutatóközpontok megerősítették. Módszeremmel már a tesztek során is
+            több ezer önkéntes kapta vissza a mozgékonyságát. Úgy szüntette meg
+            a fájdalmat, hogy már sejtszinten kikapcsolta a fájás elektromos
+            impulzusait, valamint újjáépítette az elhasználódott ízületeket és a
+            gerincet.
+          </p>
+
+          <h2>Szenzációs eredmények</h2>
+          <p>
+            Már a módszer első alkalmazása után nővéremnek azonnal enyhülni
+            kezdtek a fájdalmai. Boldoggá tette, hogy elmult térdeiben a szúró
+            fájdalom. És még csak az elején tartottunk. Egy hét után sem az
+            ízülei, sem a gerince nem hangoskodott már. Eltűntek a merevedések,
+            a duzzanatok, az ödémák, a gyulladások. Hosszú szünet után a nővérem
+            újra elkezdett sétálni járni, s gondozni a kertjét. Bárcsak
+            láthatták volna, milyen nagyot néztünk, amikor a város másik végéből
+            biciklivel jött el a családi találkozóra!
+          </p>
+          <p>
+            "Jaj, ne legyetek már ennyire lomhák, gyorsabban, húzzatok bele!" -
+            kiáltotta el magát örömteljesen, amikor egyszer megelőzött minket a
+            parkban sétálva. Sose bírtuk a tempóját. Kesőbb azonban már nekünk
+            kellett lassítanunk, hogy ő tudjon velünk lépést tartani. Most pedig
+            kevesebb mint 4 hét kellett ahhoz, hogy a nővérem mosolyogva
+            bevallja: "Öcsém, úgy érzem, mintha új ízületeket kaptam volna!
+            Mintha újra 20 éves lennék! Sok emberen tudsz majd segíteni,
+            feltaláltad az ízületi fajdalmakra az ellenszert! Nem is tudom,
+            hogyan köszönjem meg neked!". Nem sokkal később a nővérem
+            végigtáncolta keresztfia lakodalmát. Formáját és energiáját a
+            legfiatalabb vendégek is megirigyelték!
+          </p>
+
+          <img style="width: 100%" src="img/woman-sit.webp" alt="sister" />
+          <div
+            class="text-center mb-3 py-1"
+            style="background-color: #ddd; font-size: 14px"
+          >
+            A nővérem mindössze 30 nap alatt visszanyerte 100%-ban a
+            mozgékonyságát, energiáját, s életkedvét!
+          </div>
+
+          <p>
+            Mindeddig elkerülhetetlen volt az ízületek és a gerinc
+            elhasználódása az életkor előrehaladtával. Az általam kifejlesztett
+            intracelluláris szinten működő biomolekuláris módszernek
+            köszönhetően nemcsak megállíthatók, hanem vissza is fordíthatók a
+            térd, a csípő, a gerinc, a nyak, a könyök és a csukló degeneratív
+            elváltozásai.
+          </p>
+
+          <p>
+            Ezennel röviden ki szeretném fejteni, hogy min alapul az innovatív
+            biomolekuláris módszerem hatékonysága. Ez a folyamat igencsak
+            bonyolult, de igyekszem a lehető legegyszerűbb módon ismertetni a
+            laikusok számára is.
+          </p>
+
+          <h2>
+            Azonnal enyhíti a fájdalmat és regenerálja az elhasználódott
+            ízületeket a nap 24 órájában.
+          </h2>
+
+          <p>
+            Előrehaladt korral az ízületek és a gerinc elkopnak. Főleg a
+            túlsúly, intenzív fizikai munka, nehéz dolgok cipelése, túlzott
+            testedzés, sérülések és zúzódások jatszanak ebben nagy szerepet.
+            Idővel az ízületi folyadék és a porcszövet lebomlik. Ezáltal az
+            ízület elveszti kenését, s úgy viselkedik, mint egy berozsdásodott
+            ajtópánt - egyre nagyobb a surlódás, egyre nehezebb mozgatni, egyre
+            csak merevebb, s egyre jobban elhasználódik, egyre kínzóbb fájdalmat
+            okozva, ami lehetetlenné teszi, hogy szabadon mozoghassunk, és
+            hosszútávon gyulladásokhoz, súlyos elváltozásokhoz vezet.
+          </p>
+
+          <p>
+            Tudniillik, a porcszövet és az ízületi folyadék sejtjei nem képesek
+            az önregenerációra. Az emberi test más sejtjeivel ellentétben nem
+            tudnak maguktól újra életre kelni. Ezért a gerinc és az ízületek
+            mindennapi koptatásnak vannak kitéve. De azért mégsem mondunk le pl.
+            a gyaloglásról vagy az összes többi életvitelünkhez szükséges
+            tevékenységeink elvégzéséről csak azért, hogy kíméljük az
+            ízületeinket, a gerincünket. Ez azért abszurd dolog lenne.
+          </p>
+
+          <p>
+            Mindig is becsületbeli ügyemnek tekintettem, hogy olyan formulát
+            hozzak létre, mely átfogóan működik a fájdalom megszüntetésére és a
+            sérült ízületek helyreállítására, valamint védelmet nyújt a jövőbeli
+            kopások ellen is. Sikerrel jártam! Kifejlesztettem egy speciális,
+            nagy aktivitású biomolekuláris módszert, mely automatikusan
+            regenerálja az ízületi szöveteket. Arthro Care-nek neveztem el.
+          </p>
+
+          <p>
+            Az intelligens formula közvetlenül a fájdalat okozó szövetekre
+            irányul, megszünteti a gyulladást és serkenti a vér mikrokeringését,
+            így lehetővé téve az ízületek fokozatos regenerálódását, elősegíti a
+            porcszövet és az ízületi folyadék regenerációs mechanizmusait,
+            közvetlenül blokkolja a fájdalom okát azzal, hogy már sejtszinten
+            csillapítja impulzusait. Ennek eredményeként az emberek már a
+            kezelés elején arról számolnak be, hogy a fájdalmak eltűntek, s
+            mozgékonyságuk akár 240%-ban javult. Szó szerint mintha újra 20-25
+            évesek lennének! A készítmény rendszeres alkalmazása elegendő ahhoz,
+            hogy a regenerációs folyamatok ejjel-nappal működjenek. Ön csak
+            teszi a dolgát, a gerinc és az ízületek pedig megfiatalodnak, és
+            újra teljes mértékben működőképesek lesznek úgy, hogy az
+            elváltozások és a fájdalmak 30 nap alatt visszavonhatatlanul
+            eltűnnek. Ráadásul a módszerem 100%-ban biztonságos. Természetes
+            eljárásról van szó, aminek egyáltalán nincs mellékhatása. A testi
+            bántalmak mélyebb okaira irányul, táplálja a kondrocitákat és
+            elindítja a sérült szövetek öngyógyító folyamatát. Ily módon
+            csökkenti az ízületi panaszokat és enyhíti a fájdalmat.
+          </p>
+
+          <h2>
+            Miért nevezik biomolekuláris formulámat "ízületi panaszok elleni
+            csodaszernek"?
+          </h2>
+          <h2 style="background: yellow">
+            KLINIKAILAG BIZONYÍTOTT 99,2%-OS HATÉKONYSÁGGAL REGENERÁLJA A PORCOT
+            ÉS SERKENTI AZ ÍZÜLETI FOLYADÉK TERMELŐDÉSÉT.
+          </h2>
+
+          <div class="row">
+            <div class="col-sm-6 col-12">
+              <img class="w-100" src="img/before.webp" alt="stawy" />
+              <h2
+                style="
+                  text-align: center;
+                  font-size: 18px;
+                  color: black;
+                  margin-bottom: 5px;
+                "
+              >
+                előtte
+              </h2>
+              <p style="text-align: center">
+                Sérült ízület gyulladásos elváltozással; szinoviális
+                folyadékhiány
+              </p>
+            </div>
+            <div class="col-sm-6 col-12">
+              <img class="w-100" src="img/after.webp" alt="stawy" />
+              <h2
+                style="
+                  text-align: center;
+                  font-size: 18px;
+                  color: black;
+                  margin-bottom: 5px;
+                "
+              >
+                utána
+              </h2>
+              <p style="text-align: center">
+                Regenerálódott ízület, 100% működőképes, a szinoviális szerkezet
+                visszanyerte viszkozitását, rugalmasságát, s kenési
+                tulajdonságait. Az ízület párnázó funkciója helyreállt. A
+                csontok újra "olajozottan" mozgathatók.
+              </p>
+            </div>
+          </div>
+          <p>
+            Ez csodának itelni állna a legtávolabb az igazságtól. Ezek puszta
+            tények. Nemcsak a nővérem esete igazolja őket, hanem 17.000 más
+            emberé is, akik tablettáimnak köszönhetően 100%-ban visszanyerték
+            mozgásképességüket, akik megszabadultak a fájdalmaiktól,
+            duzzanataiktól, zsibbadásaiktól. Egy amerikai kutatóközpont
+            Seattle-ben is megerősítette a biomolekuláris módszerem
+            hatékonyságát, ami világméretű áttörést jelent. Formulám világszerte
+            nagy tapsot és elismerést váltott ki ortopédiai és reumatológiai
+            szakértők körében. Naponta kapok köszönőleveleket olyan emberektől,
+            akik a kezelési módszeremnek köszönhetően visszanyerték a
+            mozgékonyságukat. Ez minden bizonnyal sikerem, büszkeségem
+            legnagyobb forrása. Igenis megérte ennyi áldozatot hozni érte.
+          </p>
+          <h2 style="background: yellow">
+            INNOVATÍV MÓDSZER, 100% TERMÉSZETES ÉS BIZTONSÁGOS, KÖNNYEN
+            ALKALMAZHATÓ
+          </h2>
+
+          <p>
+            Egyedülálló módszerem speciálisan kiválasztott növényi eredetű
+            hatóanyagok ötvözete. Alkalmazása 100% biztonságos. Mellékhatása
+            nincsen. A kezelést bárki könnyen elvégezheti saját maga. A
+            készítmény rendszeres szedése azonnali fájdalommentességgel jár,
+            idővel pedig regenerálja a sérült ízületeket, míg vissza nem áll a
+            teljes mozgékonysága, életminősége!
+          </p>
+          <h2>
+            Szerettei, rokonai és barátai, akik hozzászoktak már a mozgási
+            nehézsegéhez, fájásához, meg fognak döbbenni. Nem fogják elhinni,
+            hogy mindössze 30 nap alatt sikerült helyreállítania az ízületeit,
+            és újra olyan formában érzi magát, mint 20 éves korában!
+          </h2>
+
+          <div class="row graph-box my-5">
+            <div class="col-sm-12 product-column mb-sm-0 mb-3">
+              <img
+                src="img/arthroCare_infografika2.webp"
+                alt
+                class="product w-100"
+              />
+            </div>
+          </div>
+
+          <h2>
+            Tényleg elszalasztaná a lehetőséget, hogy 100%-ig visszanyerje a
+            régi formáját?
+          </h2>
+          <p>
+            Ha úgy akarja, szenvedhet a jövőben is ízületi panaszok miatt, vagy
+            derékfájásban. Továbbra is pazarolhatja pénzét, idejét
+            orvoslátogatásokra, vagy haszontalan táplálékkiegészítőkre. Ezentúl
+            is kiteheti magát a teljes rokkantság kockázatának. De miért tenné,
+            amikor olcsó, gyors és biztonságos módszeremmel garantáltan
+            visszanyerheti a teljes mozgáskapacitását. Az Arthro Care mindössze
+            30 napos alkalmazásával csatlakozhat ahhoz az 17.000 boldog
+            emberhez, aki már megszüntette ízületi panaszait, s visszaszerezte
+            teljes mértekű folyékony mozgását és életörömét!
+          </p>
+
+          <h2>Semmit nem kockáztat!</h2>
+
+          <p>
+            Az Arthro Care segítségével azonnal megszabadul a fájdalmak okozta
+            kényelmetlenségektől, és 30 nap alatt visszanyeri mozgáskapacitását.
+            Ezenfelül nem kockáztat semmit! Innovatív tablettáim
+            világviszonylatban jelentős eredményt jelentenek, amiért elnyerték a
+            tekintélyes Tripla Elégedettségi Garancia címét: minőségben,
+            elégedettségben, eredetiségben.
+          </p>
+          <div class="warranty">
+            <h2
+              class="text-cente mb-0"
+              style="color: #a30017; margin-top: 20px"
+            >
+              Tripla Elégedettségi Garancia
+            </h2>
+            <ol style="padding: 20px">
+              <li>
+                <b>Eredetiségi garancia</b> – Az Arthro Care makromolekuláris
+                kezelés képlete az ízületek és a gerinc regenerálását biztosító
+                leghatékonyabb természetes anyagokon alapul. Hatékonyságát a
+                világ számos kutatóközpontjának tanulmányai igazolják. Az Arthro
+                Care az egyetlen ilyen innovatív keszítmény. Ez garantálja
+                Önnek, hogy eredeti terméket biztosítunk a számára, mely
+                kizárólag ezen a weboldalon keresztül érhető el.
+              </li>
+              <br />
+              <li>
+                <b>Minőségi garancia</b> – a makromolekuláris formula korszerű
+                gyártási folyamatának köszönhetően az Arthro Care megfelel a
+                legmagasabb minőségi előírásoknak. Egészsége és jóléte érdekében
+                a hatóanyagokat úgy választottuk ki, hogy a kezelés teljesen
+                biztonságos legyen. Mindent megteszünk annak érdekében, hogy a
+                kezelés hatása 100%-ban megfeleljen az Ön elvárásainak.
+              </li>
+              <br />
+              <li>
+                <b>Elégedettségi garancia</b> – számos laboratóriumi és
+                fogyasztói teszt igazolja az Arthro Care kiváló hatékonyságát.
+                Ezen eredmények alapján a kezelés világszerte elnyerte a
+                szakemberek elismerését, akik ajánlják betegeinek.
+                Meggyőződésük, hogy a kezelt beteg 30 nap alatt megszabadul az
+                ízületi panaszoktól, gerincfájdalmaktól, megszűnnek az
+                izomgörcsök és a zsibbadások, s a beteg visszanyeri teljes
+                fizikai aktivitását.
+              </li>
+            </ol>
+          </div>
+          <h2
+            style="margin: 20px 0; margin-left: 20px"
+            class="warranty__header text-left"
+          >
+            Mondjon búcsút a fájdalomnak, építse újra a sérült ízületeit és
+            nyerje vissza teljes mozgását 30 nap alatt - egyszerűen,
+            biztonságosan, gazdaságosan.
+          </h2>
+
+          <p>
+            Amikor Japánban, Amerikában a legnagyobb gyógyszergyártó cégek
+            értesültek az Arthro Care hatékonyságáról, egymással versengve nem
+            egy ajánlatot tettek a biomolekuláris képletem szabadalmának
+            megvásárlására. Meglehet eladom nekik, s így majd világszerte
+            elérhető lesz, de vajon mennyivel magasabb áron.
+          </p>
+          <p>
+            Mielőtt ez azonban megtörténne, úgy döntöttem, hogy elsőként
+            Lengyelországban teszem elérhetővé 70%-os külön támogatással, hogy
+            minél több embernek segítsek hazámban, hogy egyszer és mindenkorra
+            megszabaduljanak az ízületi problémáktól.
+          </p>
+          <p>
+            Ezért bátorítani szeretném Önt is, hogy éljen a lehetőséggel! A
+            rendelés lebonyolítása nagyon egyszerű. Nem kell online pénzt
+            utalnia, sem kártyával fizetnie ahhoz, hogy az Arthro Care-t
+            eljuttassuk otthonába. Mindössze annyit kell tennie, hogy 2 percét
+            rászánja az űrlap kitöltésére. Néhány nap múlva pedig házhoz kapja a
+            csomagot, amit kényelmesen kifizethet a futárnak.
+          </p>
+          <p>
+            Köszönöm, hogy időt szakított a mondanivalom elolvasására. Új
+            életéhez viszont sok boldogságot kívánok. 30 nap múlva teljes
+            mozgásképességgel várja Önt, fájdalmak, duzzanatok nélkül!
+          </p>
+
+          <br />
+          <img
+            class="d-block float-right"
+            style="width: 40%"
+            src="img/podpis2.webp"
+            alt="podpis profesora"
+          />
+
+          <span class="text-right d-block" style="clear: both"
+            >a professzor úr aláírása Prof. Kincses Károly</span
+          >
+          <br />
+          <!-- counter -->
+          <div class="row">
+            <p class="text-center"></p>
+            <div class="price_alignment mx-auto">
+              <b>Arthro Care</b> akár
+              <span style="color: red; font-size: 18px"
+                ><b>16 000 HUF-os kedvezménnyel </b></span
+              >
+            </div>
+            <div class="offset-md-3 col-md-6">
+              <img
+                class="img-fluid d-block product__box"
+                src="img/product2.webp"
+                alt="product box"
+              />
+            </div>
+            <div class="col-md-3">
+              <div class="counter-items-left">
+                <span class="conter_label mx-auto d-block"
+                  >Az aktuális tételből rendelkezésre álló darabszám:</span
+                >
+                <div id="odometer" class="odometer">1023</div>
+              </div>
+            </div>
+            <div class="mx-auto">
+              <p class="text-center">
+                <b
+                  ><span class="red"><s>27900 HUF</s></span
+                  ><span class="green"> 11900 HUF</span></b
+                >
+              </p>
+              <p class="text-center">
+                Rendelje meg ma, és takarítson meg 16.000 forintot, ingyenes
+                házhozszállítással és elégedettségi garanciával. Ez akció
+                korlátozott 200 rendelésre:
+              </p>
+            </div>
+          </div>
+
+          <!-- FORM SECTION -------------------------------------------------------------------------->
+
+          <form class="form_wrapper" id="orderForm" method="post" action="">
+            <h2 class="form_title">Megrendelőlap</h2>
+            <p>
+              <b>IGEN!</b> 16 000 HUF-os kedvezménnyel szeretném megkapni az
+              Arthro Care-t. Ez azt jelenti, hogy választásom teljesen
+              biztonságos, hiszen a termékre a Tripla Elégedettségi Garancia
+              érvényes. A terméket futár szállítja ki nekem az elkövetkezendő
+              napokban.
+            </p>
+
+            <div class="input_group">
+              <label for="name" class="required">Például: János</label>
+              <div class="input_wrapper">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="input name_form"
+                  placeholder="Itt írja be a keresztnevét"
+                  required
+                />
+              </div>
+            </div>
+            <div class="input_group">
+              <label for="phone" class="required">PÉLDÁUL: +36204526987</label>
+              <div class="input_wrapper">
+                <div class="hover">
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    class="input phone_form"
+                    placeholder="Itt írja be a telefonszámát"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div id="form_button1" class="button-wrapper">
+              <div class="alertbox">Töltse ki helyesen az űrlapot!</div>
+              <button type="submit" id="form_btn" class="form_btn">
+                Kattintson ide, ha az Arthro Care mellett döntött
+              </button>
+            </div>
+            <div class="hiden_form">
+              <div class="yellow_wrapper">
+                <p>
+                  <b>FONTOS!</b> Ne fizessen külön a szállításért. A csomag
+                  házhozszállításának költségeit bizonyos régiókban a gyártó
+                  100% -ban megtéríti. Annak ellenőrzéséhez, hogy Ön is jogosult
+                  -e az ingyenes kiszállításra, töltse ki az űrlapot a helyes
+                  címadatokkal, és kattintson az alábbi gombra.
+                </p>
+              </div>
+              <div class="input_group">
+                <label for="address" class="required">Utca és házszám:</label>
+                <div class="input_wrapper">
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    class="input adress_form"
+                    placeholder="Ide írja be az utca és a házszámot"
+                  />
+                </div>
+              </div>
+              <div id="adress_error" class="adress_error">
+                Adja meg helyesen a címét
+              </div>
+              <div class="input_group">
+                <label for="postal" class="required">Irányítószám:</label>
+                <div class="input_wrapper">
+                  <input
+                    type="text"
+                    name="postal"
+                    id="postal"
+                    class="input postal_form"
+                    placeholder="_ _ _ _"
+                  />
+                </div>
+              </div>
+              <div id="postal_error" class="postal_error">
+                Írja be helyesen az irányítószámot
+              </div>
+              <div class="input_group">
+                <label for="city" class="required">Város:</label>
+                <div class="input_wrapper">
+                  <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    class="input city_form"
+                    placeholder="Ide írja be a város nevét"
+                  />
+                </div>
+              </div>
+              <div id="city_error" class="city_error">
+                Adja meg helyesen a város nevét
+              </div>
+              <div class="input_group">
+                <label for="message">Megjegyzés a futárnak:</label>
+                <div class="input_wrapper">
+                  <textarea
+                    name="message"
+                    id="message"
+                    cols="30"
+                    rows="10"
+                    class="input textarea message_form"
+                  ></textarea>
+                  <span> (a szállítái cím részletei, hely stb.) </span>
+                </div>
+              </div>
+              <div class="input_group">
+                <label for="email">E-mail:</label>
+                <div class="input_wrapper">
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    class="input email_form"
+                  />
+                  <span>
+                    (Friss információkat kaphat az aktuális promóciókról és
+                    ajánlatokról)
+                  </span>
+                </div>
+              </div>
+              <div id="email_error" class="email_error">
+                írja be helyesen az e-mail címét
+              </div>
+              <div class="button-wrapper">
+                <div class="alertbox">
+                  Töltse ki az űrlap többi részét és ingyenes szállításban
+                  részesüljön
+                </div>
+                <button type="submit" id="form_btn2" class="form_btn2">
+                  Éljen a kedvezménnyel és rendelje meg a Arthro Care -ot
+                  INGYENES házhozszállítással!
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- FOOTER SECTION -------------------------------------------------------------------------->
+          <div class="footer" style="font-size: 16px; text-align: center">
+            <br />
+            <div>
+              GALAS INVESTMENTS LTD, 161 High Street, Ruislip, England, HA4 8JY
+            </div>
+            <a href="policy_hu.html" target="_blank">Adatvédelmi szabályzat</a>
+            <br /><br />
+
+            <span class="d-block m-2" style="font-size: 12px; color: #b3b3b3">
+              A termék külső használatra lett kialakítva. Az étrend-kiegészítőt
+              ne használjuk a változatos étrend alkalmazása helyett. Az Uri Care
+              Complex étrend-kiegészítőt nem használhatják krónikus betegek,
+              terhes kismamák, szoptató anyukák és 18 év alatti gyermekek,
+              anélkül, hogy előtte orvossal konzultálnának.
+            </span>
+            <br />
+
+            <span class="d-block m-2" style="font-size: 12px; color: #b3b3b3"
+              >A biztonság és a legmagasabb szintű szolgáltatás érdekében a
+              weboldal tulajdonosa fenntartja a jogot, hogy az adatvédelmi
+              szabályzatban szereplő módosításokat bevezessen. Az intézkedés
+              célja az ügyfelek teljes anonimitásának megőrzése, ezért a
+              nyújtott szolgáltatásokkal való elégedettségük érdekében nevüket
+              megváltoztatta. Ugyanakkor az oldal tulajdonosa kiemeli, hogy
+              valós karakterekkel fellépő hasonlóságok nem szándékosak, hanem
+              kizárolag a véletlen műve.</span
+            >
+            <br />
+          </div>
+        </main>
+        <!-- ASIDE SECTION -------------------------------------------------------------------------->
+        <aside class="col-lg-4 d-none d-md-block">
+          <div class="card mb-4"></div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <img src="img/user1.webp" class="card-img-top" alt="..." />
+              <div class="content-scroll-wrapper">
+                <h3>Ízületek mintha újak lennének!</h3>
+                <p class="card-text">
+                  Ülő életmódom és jelentős túlsúlyom miatt évről évre egyre
+                  nagyobb ízületi fájdalmakat tapasztaltam. Keveset mozogtam, de
+                  még a lépcsőmászás is nehézséget okozott. Kiderült, hogy az
+                  ízületi porcom teljesen tönkrement, és ráadásul gyulladás is
+                  kialakult benne. Az orvosok tehetetlenül tárták szét a kezüket
+                  és nem tudtak nekem segíteni, én meg alig bírtam járni.
+                  Szerencsére rátaláltam Kecskés professzor készítményére,
+                  különben most valószínűleg kerekesszékben ülnék. Mindössze egy
+                  hónapig tartott, amíg az ízületeim regenerálódtak és a
+                  fájdalom megszűnt!
+                </p>
+                <span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half"></i>
+                </span>
+                <p>
+                  Kalocsai Zsófia,<br />
+                  71 éves, Orosháza
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <img src="img/user2.webp" class="card-img-top" alt="..." />
+              <div class="content-scroll-wrapper">
+                <h3>Az eredményekért fizettem</h3>
+                <p class="card-text">
+                  Élet állandó fájdalomban annyira kimerítő volt lelkileg, hogy
+                  csak egy dolog érdekelt – vajon segít-e? Most az egyszer
+                  EREDMÉNYEKÉRT akartam fizetni – az egészséges ízületekért és
+                  „új” hátért, nem pedig megint pénzt kidobni az ablakon. Nem
+                  érdekelt, hogy milyen terméket rendeltem, nem számított, hogy
+                  mennyi lóvéért... Csak két dolog volt lényeges: hogy
+                  biztonságos legyen, hogy ne okozzon több új kárt, és hogy
+                  végre megszabaduljak ettől a szörnyű fájdalomtól.
+                  Megkockáztattam és megrendeltem Kecskés professzor
+                  készítményét. Végre telitalálat! Napról napra egyre nagyobb
+                  megkönnyebbülést éreztem a fájdalomtól, könnyebben kelek ki az
+                  ágyból, és végre tudom, hogy konkrét eredményért fizettem.
+                  Végső soron csak ez számít. Ha megvan az eredmény, akkor az
+                  ember a lóvét sem sajnálja.
+                </p>
+                <span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <p>Kócz Janka, 63 éves, Székesfehérvár</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <img src="img/user3.webp" class="card-img-top" alt="..." />
+              <div class="content-scroll-wrapper">
+                <h3>30 nap és vége a fájdalomnak!</h3>
+                <p class="card-text">
+                  Egyik ortopédustól a másikhoz jártam, egyre újabb és újabb
+                  receptet kaptam drága kémiai szerekre, amelyek egyáltalán nem
+                  segítettek nekem. Csak akkor éreztem igazi megkönnyebbülést,
+                  amikor ezt a készítményt választottam. A fájdalom már az 1.
+                  nap után csökkent, 30 nap után pedig teljesen megfeledkeztem
+                  az ízületi problémákról. Ajánlom!
+                </p>
+                <span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half"></i>
+                </span>
+                <p>Cserna Richárd, 68 éves, Pécs</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <img src="img/user4.webp" class="card-img-top" alt="..." />
+              <div class="content-scroll-wrapper">
+                <h3>Visszanyertem az életörömet</h3>
+                <p class="card-text">
+                  Jelentős túlsúllyal rendelkezem – kiderült, hogy ez halálos
+                  volt a térdeimnek, amelyek a csípőm felé sugároztak, az pedig
+                  egyenes vonalban az ágyékom felé. Aki szenvedett már ízületi
+                  gyulladástól vagy gerincsérvtől, az tudja, milyen gyötrelemről
+                  van szó, amikor minden mozdulat hatalmas fájdalmat okoz. Az
+                  Arthro Care-t egy szomszédom ajánlotta nekem. A térdem körül
+                  lévő duzzanat és ödéma láthatóan csökkent. Ülés közben
+                  gyakorlatilag egyáltalán nem érzek fájdalmat, járáskor pedig
+                  sokkal kevesebbet.
+                </p>
+                <span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <p>Radnóti Lilianna, 45 éves, Vecsés</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <img src="img/user5.webp" class="card-img-top" alt="..." />
+              <div class="content-scroll-wrapper">
+                <h3>Endoprotézis? Szó sem lehet róla!</h3>
+                <p class="card-text">
+                  Amikor még a rehabilitáció sem segített a krónikus
+                  csípőfájdalmamon, az orvos azzal ijesztgetett, hogy
+                  endoprotézis beültetésére lesz szükségem. Már csupán ennek a
+                  szónak a hallatára is elszédültem, és hallani sem akartam
+                  semmiféle műtétről. Szerencsére a lányom megtalálta nekem az
+                  interneten Kecskés professzor kezelését. Nem volt
+                  vesztenivalóm, ezért úgy döntöttem, hogy kipróbálom. Ez volt
+                  életem legjobb döntése. A fájdalom már néhány nap után elmúlt,
+                  az utolsó vizsgálatok pedig kimutatták, hogy a degeneratív
+                  elváltozások visszafordultak!
+                </p>
+                <span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <p>Zsúrkó János, 67 éves, Gyönk</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <img src="img/user6.webp" class="card-img-top" alt="..." />
+              <div class="content-scroll-wrapper">
+                <h3>Végre nem kell segítségért könyörögnem</h3>
+                <p class="card-text">
+                  Dühös voltam, amikor hallottam, hogy 18 hónapot kell sorban
+                  várnom, hogy specialistához kerüljek. Szerencsére kiderült,
+                  hogy vannak gyorsabb megoldások a térdfájdalomra. Az Arthro
+                  Care a tökéletes készítmény – hatékony és könnyen
+                  alkalmazható. A fájdalom már az 1. dózis után megszűnt.
+                </p>
+                <span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half"></i>
+                </span>
+                <p>Romanovszky János, 54 éves, Eger</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <img src="img/user7.webp" class="card-img-top" alt="..." />
+              <div class="content-scroll-wrapper">
+                <h3>Új élet fájdalom nélkül</h3>
+                <p class="card-text">
+                  Mindig is szerettem a hegyekben túrázni. A túrázási
+                  szenvedélyemet azonban fel kellett adnom a mindkét térdemben
+                  jelentkező és egyre jobban erősödő reumatikus fájdalmak miatt.
+                  Voltak napok, amikor még az ágyból sem tudtam kikelni, nem is
+                  beszélve gyalogos kirándulásokról! Egy sor injekción estem át,
+                  az orvos által felírt kenőcsöket alkalmaztam, de mind hiába.
+                  Ez a termék kellett ahhoz, hogy újra talpra álljak – már
+                  néhány alkalmazás után hatalmas megkönnyebbülést éreztem. Alig
+                  30 napos kezelés után a panaszok elmúltak, én pedig... új
+                  túracipőt vettem!
+                </p>
+                <span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half"></i>
+                </span>
+                <p>Ladányi Teréz, 67 éves, Göd</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <img src="img/user8.webp" class="card-img-top" alt="..." />
+              <div class="content-scroll-wrapper">
+                <h3>Ez az egyetlen hatékony módszer</h3>
+                <p class="card-text">
+                  A térdfájdalmam miatt bezárkóztam otthon és egyáltalán nem
+                  mozdultam ki. A fiamra voltam ráutalva, aki mindig elment
+                  nekem bevásárolni a legfontosabb dolgokat. Most újra önállóan
+                  tudom csinálni. Végre szívesen mozdulok ki, és nemcsak a
+                  legsürgősebb ügyeket elintézni, hanem egyszerűen azért, hogy
+                  találkozzak emberekkel. Tudom, hogy amióta ezt a készítményt
+                  használom, a fájdalom nem fog többé meglepni.
+                </p>
+                <span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half"></i>
+                </span>
+                <p>Jaskó Margit, 72 éves, Jászberény</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div id="popuplist">
+      <div class="comments-popup_btn">
+        <span class="labelSpan">WIĘCEJ OPINII</span>
+        <div class="triggerBtn comments-popup_btn_circle">
+          <i class="fas fa-caret-left arrow"></i>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/odometer.js"></script>
+    <script src="js/timer.min.js"></script>
+    <script src="js/popper.min.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script
+      type="text/javascript"
+      src="js/main.d7ef4d078bba87b7beaf.chunk.js"
+    ></script>
+  </body>
+
+  <script>
+    $(".link-scroll").on("click", function (event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $("html, body").animate(
+          {
+            scrollTop: $(hash).offset().top,
+          },
+          800,
+          function () {
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          }
+        );
+      } // End if
+    });
+  </script>
+</html>

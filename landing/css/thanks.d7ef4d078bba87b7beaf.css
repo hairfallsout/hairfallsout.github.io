@@ -1,0 +1,9 @@
+.summery-table,
+td,
+tr {
+  border: none !important;
+}
+
+h1 {
+  color: #3f6e80;
+}
